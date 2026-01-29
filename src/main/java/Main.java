@@ -8,6 +8,14 @@ public class Main {
         System.out.print("명령) ");
         String cmd = sc.nextLine();
 
+        System.out.print("명언 : ");
+        String wiseSaying = sc.nextLine();
+        System.out.print("작가 : ");
+        String author = sc.nextLine();
+
+        System.out.print("명령) ");
+        cmd = sc.nextLine();
+
 
     }
 }
