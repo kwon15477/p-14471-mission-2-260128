@@ -31,8 +31,8 @@ public class Main {
             } else if (cmd.equals("목록")) {
                 System.out.println("번호 / 작가 / 명언");
                 System.out.println("----------------------");
-                for (int i = 0; i < wiseSayings.size(); i++) {
-                    WiseSaying ws = wiseSayings.get(i);
+                for (int i = wiseSayings.size(); i > 0; i--) {
+                    WiseSaying ws = wiseSayings.get(i - 1);
                     System.out.println(ws.id + " / " + ws.author + " / " + ws.content);
                 }
             }
