@@ -25,24 +25,21 @@ public class Main {
                 System.out.print("작가 : ");
                 String author = sc.nextLine();
                 System.out.println(lastId + "번 명언이 등록되었습니다.");
+
                 WiseSaying ws = new WiseSaying(lastId, content, author);
                 wiseSayings.add(ws);
                 lastId++;
             } else if (cmd.equals("목록")) {
                 System.out.println("번호 / 작가 / 명언");
                 System.out.println("----------------------");
-/*
-                for (int i = wiseSayings.size(); i > 0; i--) {
-                    WiseSaying ws = wiseSayings.get(i - 1);
-                    System.out.println(ws.id + " / " + ws.author + " / " + ws.content);
-                }
-*/
+
                 for (WiseSaying ws : wiseSayings.reversed()) {
-                    System.out.println(ws.id + " / " + ws.author + " / " + ws.content);
+                    System.out.println(ws.getId() + " / " + ws.getAuthor() + " / " + ws.getContent());
                 }
             } else if (cmd.startsWith("삭제?id=")) {
                 int id = Integer.parseInt(cmd.split("=")[1]);
                 WiseSaying targetWiseSaying = null;
+
                 for (WiseSaying ws : wiseSayings) {
                     if (ws.getId() == id) {
                         targetWiseSaying = ws;
@@ -57,8 +54,34 @@ public class Main {
                 }
 
 
+            } else if (cmd.startsWith("수정?id=")) {
+                int id = Integer.parseInt(cmd.split("=")[1]);
+                System.out.println("수정");
+                WiseSaying targetWiseSaying = null;
+
+                for (WiseSaying ws : wiseSayings) {
+                    if (ws.getId() == id) {
+                        targetWiseSaying = ws;
+                        break;
+                    }
+                }
+                if (targetWiseSaying == null) {
+                    System.out.println(id + "번 명언은 존재하지 않습니다.");
+                } else {
+                    System.out.println("명언(기존) : " + targetWiseSaying.getContent());
+                    System.out.print("명언 : ");
+                    String content = sc.nextLine();
+                    System.out.println("작가(기존) : " + targetWiseSaying.getAuthor());
+                    System.out.print("작가 : ");
+                    String author = sc.nextLine();
+                    System.out.println(id + "번 명언이 수정되었습니다.");
+
+                    targetWiseSaying.setContent(content);
+                    targetWiseSaying.setAuthor(author);
+                }
+
             } else {
-                System.out.println("멸령어가 잘못됐습니다");
+                System.out.println("명령어가 잘못됐습니다");
             }
         }
     }

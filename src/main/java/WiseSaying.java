@@ -1,7 +1,7 @@
 public class WiseSaying {
-    int id;
-    String content;
-    String author;
+    private int id;
+    private String content;
+    private String author;
 
     public int getId() {
         return id;
