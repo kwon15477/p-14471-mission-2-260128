@@ -31,10 +31,30 @@ public class Main {
             } else if (cmd.equals("목록")) {
                 System.out.println("번호 / 작가 / 명언");
                 System.out.println("----------------------");
+/*
                 for (int i = wiseSayings.size(); i > 0; i--) {
                     WiseSaying ws = wiseSayings.get(i - 1);
                     System.out.println(ws.id + " / " + ws.author + " / " + ws.content);
                 }
+*/
+                for (WiseSaying ws : wiseSayings.reversed()) {
+                    System.out.println(ws.id + " / " + ws.author + " / " + ws.content);
+                }
+            } else if (cmd.startsWith("삭제?id=")) {
+                int id = Integer.parseInt(cmd.split("=")[1]);
+                WiseSaying targetWiseSaying = null;
+                for (WiseSaying ws : wiseSayings) {
+                    if (ws.getId() == id) {
+                        targetWiseSaying = ws;
+                        break;
+                    }
+                }
+                wiseSayings.remove(targetWiseSaying);
+                System.out.println(id + "번의 명언이 삭제되었습니다");
+
+
+            } else {
+                System.out.println("멸령어가 잘못됐습니다");
             }
         }
     }
