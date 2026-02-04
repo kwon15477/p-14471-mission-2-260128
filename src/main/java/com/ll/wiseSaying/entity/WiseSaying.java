@@ -1,7 +1,13 @@
+package com.ll.wiseSaying.entity;
+
+import java.time.LocalDateTime;
+
 public class WiseSaying {
     private int id;
     private String content;
     private String author;
+    private LocalDateTime createDate;
+    private LocalDateTime modifyDate;
 
     public WiseSaying(int id, String content, String author) {
         this.id = id;
@@ -27,6 +33,22 @@ public class WiseSaying {
 
     public String getAuthor() {
         return author;
+    }
+
+    public LocalDateTime getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(LocalDateTime createDate) {
+        this.createDate = createDate;
+    }
+
+    public LocalDateTime getModifyDate() {
+        return modifyDate;
+    }
+
+    public void setModifyDate(LocalDateTime modifyDate) {
+        this.modifyDate = modifyDate;
     }
 
     public void setAuthor(String author) {
