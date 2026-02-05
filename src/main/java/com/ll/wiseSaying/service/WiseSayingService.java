@@ -1,12 +1,13 @@
 package com.ll.wiseSaying.service;
 
+import com.ll.global.AppContext;
 import com.ll.wiseSaying.entity.WiseSaying;
 import com.ll.wiseSaying.repository.WiseSayingRepository;
 
 import java.util.List;
 
 public class WiseSayingService {
-    private final WiseSayingRepository wiseSayingRepository = new WiseSayingRepository();
+    private WiseSayingRepository wiseSayingRepository = AppContext.wiseSayingRepository;
 
     public int write(String content, String author) {
         WiseSaying ws = new WiseSaying(0, content, author);

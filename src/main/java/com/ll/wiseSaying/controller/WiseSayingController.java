@@ -1,6 +1,7 @@
 package com.ll.wiseSaying.controller;
 
-import com.ll.Request;
+import com.ll.global.AppContext;
+import com.ll.global.Request;
 import com.ll.wiseSaying.entity.WiseSaying;
 import com.ll.wiseSaying.service.WiseSayingService;
 
@@ -9,8 +10,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class WiseSayingController {
-    private final Scanner sc = new Scanner(System.in);
-    private final WiseSayingService wiseSayingService = new WiseSayingService();
+    private Scanner sc = new Scanner(System.in);
+    private WiseSayingService wiseSayingService = AppContext.wiseSayingService;
 
     public void actionWrite() {
         System.out.print("명언 : ");
